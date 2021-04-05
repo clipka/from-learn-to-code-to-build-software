@@ -52,12 +52,32 @@ _Tom_ and _Sofia_ as typical users of the _job provider_ category want to create
 
 #### Putting it all together
 
-Now all the necessary information are available to write down initial user stories.
+Now all the necessary information are available to write down initial set of user stories.
+
+Let's start with core functionality for job searchers.
 
 `As Emma, I want to search for available jobs so that I can apply for them.`
-`As Leon, I want to apply for a job so that I am in the short list of applicants`
 
-`As Tom, I want to create a job offer, so that job searchers can apply for it`
+In the first user story, we focus on the part to find available jobs. Remember: That was one of the core problems to solve: It is hard to find jobs for teens.
+
+`As Leon, I want to apply for a job so that I am in the short list of applicants.`
+
+Of course, after finding a job, a job searcher need to be able to apply for it. Just browsing for available jobs is only the first part.
+
+TODO: Move this to a later chapter: `As Emma, I want to create a profile so that I can show case my experience.`
+
+After we have finished the first draft of user stories, let's define a set of user stories for the job offering users.
+
+`As Tom, I want to create a job offer, so that job searchers can apply for it.`
+
+First of all, somebody who has a job to offer needs to create such an offering.
+
 `As Sofia, I want to browse a list of applicants, so that I can chose the right candidate.`
+
+Finally, after a teen like Leon applied for a job, Sofia need to be able to see a list of applicants so that she can decide for someone to take over the job.
+
+As you can see, no basic functionality like login, profile creation and so on are in focus right now for the initial implementation. All of them are necessary for the real product, but are not the core functionality.
+
+Looking at the user stories, would you be able to implement them? Problably not! Too many questions are left open. Let's focus on refinement in the next part.
 
 [Prev](010_introduction.md) [Top](001_toc.md) [Next](200_refine_it.md)
