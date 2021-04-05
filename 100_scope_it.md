@@ -6,19 +6,26 @@ You have a vague idea. You start coding on it. Short after, you lose motivation 
 
 As a first step describe the software in a short paragraph. That must not be long, just a couple of sentences to frame it. This might be already hard. But you need to come to the core of your idea.
 
-`Many Teens want to earn a bit of pocket money with some light work like dogwalking, babysitting or lawn mowing. Busy adults need sometimes a helping hand. But for both sides it is often hard to find each other. Coolie can help.
+`Many teens want to earn a bit of pocket money with some light work like dogwalking, babysitting or lawn mowing. Busy adults need sometimes a helping hand. But for both sides it is often hard to find each other. Coolie can help.
 Coolie is a service that brings teens and adults together. Teens can search for a job and apply. Adults can post jobs and find the right person for their jobs.`
 
-To really figure out, what you idea is about, describe the core functionality in form of a user story. "As <user>, I want <functionality>, so that <benefit>.
+### Your first user story
+
+To really figure out what you idea is about, describe the core functionality in form of a user story. "As _**user**_, I want _**functionality**_, so that _**benefit**_.
+
 You have to ask yourself 3 questions:
 1. Who wants that functionality?
 2. What functionality wants the user?
 3. Why is that functionality needed/desired?
 
+#### Why is that functionality needed/desired?
+
 Focus on question 3 first. What is the problem to solve? Why will somebody use the software?
 
 Here is what I came up for _Coolie_.
-`Many teens want to find jobs that pays for hobbies. But those jobs are not that easy to find since they are not posted somewhere centrally. Adults often have small jobs to offer but don't know where to post such jobs and how to find trustful teens for execution.`
+`Many teens want to find jobs that pays for hobbies and other things like the first car. But those jobs are not that easy to find since they are not posted somewhere centrally. Adults often have small jobs to offer but don't know where to post such jobs and how to find trustful teens for execution.`
+
+#### Who wants that functionlity?
 
 If you described why this functionality is needed, ask yourself who the user of your system is. Don't call her or him just 'user'. A 'user' can by anyone. Take a shopping side like Amazon for example. There are plenty of users. There are customers who search for goods to buy. There are admins who keep the side running. There are marchants who add new products or update existing ones. There are folks who need to take care about logistics, software and data engineers and many more. Just calling the user 'user' won't bring you further.
 Come up with 1 - 5 user stories that describe the main functionality of your software.
@@ -37,4 +44,20 @@ Let's define fours persons who use our service.
 `Tom: Tom is 42 years old and a successful business man. Also his wife is very busy with her little boutique. Tom and his wife have two little girls, 1 and 3 years old. From time to time they want to enjoy an evening alone in a restaurant. The last baby sitter left town for collegue. Now they are searching for a new one.`
 `Sofia: Sofia is 65 years old and lives in a house in an urban environment outside the city. She loves her big garden where she grows vegtables. There are also a lot of bushes and trees. But every year it is getting more and more hard for her to keep the garden clean and nice. She needs from time to time a helping hand`
 
-TODO: To overcome the [[fancy technology trap]] If you already understand how often the software is needed - great. That gives you a hint for [[non-functional requirements]] later on. If not, no worries, we will come to this later.
+#### What functionality wants the user?
+
+Since we have now defined two types of users and why the functionality is needed by them, we need to focus on the functionality itself.
+_Emma_ and _Leon_ as typical users of the _job searcher_ category want to search for jobs. When they found a job, they want to apply for it.
+_Tom_ and _Sofia_ as typical users of the _job provider_ category want to create job offers, view applicants and finally select someone for the job.
+
+#### Putting it all together
+
+Now all the necessary information are available to write down initial user stories.
+
+`As Emma, I want to search for available jobs so that I can apply for them.`
+`As Leon, I want to apply for a job so that I am in the short list of applicants`
+
+`As Tom, I want to create a job offer, so that job searchers can apply for it`
+`As Sofia, I want to browse a list of applicants, so that I can chose the right candidate.`
+
+[Prev](010_introduction.md) [Top](001_toc.md) [Next](200_refine_it.md)
