@@ -40,8 +40,11 @@ TODO: Explain Personas.
 Let's define fours persons who use our service.
 
 `Emma: Emma is 17 and dreams to have a driving license and a car to be independent and explore the world. She also has some experience with baby sitting and tutoring.`
+
 `Leon: Leon is 13 and likes computer games. To buy a new one, he wants to earn some extra money to reach his goal earlier.`
+
 `Tom: Tom is 42 years old and a successful business man. Also his wife is very busy with her little boutique. Tom and his wife have two little girls, 1 and 3 years old. From time to time they want to enjoy an evening alone in a restaurant. The last baby sitter left town for collegue. Now they are searching for a new one.`
+
 `Sofia: Sofia is 65 years old and lives in a house in an urban environment outside the city. She loves her big garden where she grows vegtables. There are also a lot of bushes and trees. But every year it is getting more and more hard for her to keep the garden clean and nice. She needs from time to time a helping hand`
 
 #### What functionality wants the user?

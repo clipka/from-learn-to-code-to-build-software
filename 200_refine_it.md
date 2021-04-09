@@ -40,8 +40,8 @@ There are many ways to define _acceptance criteria_. But we follow the KISS prin
 
 For our example story `As Emma, I want to view a list of all available job offerings.` a list of acceptance criteria can be defined as follows:
 
-1. When navigating the to the /jobs page, a list of all available job offererings is displayed.
-2. Each displayed offering shall contain a title, a location, the name of the user who created the offering and a date when it was created.
+1. `When navigating the to the /jobs page, a list of all available job offererings is displayed.`
+2. `Each displayed offering shall contain a title, a location, the name of the user who created the offering and a date when it was created.`
 
 The aacceptance criteria have to be as specific as possible. If they are read by another person who has to implement the story, no questions should be left open.
 In case of _Coolie_, the list of job offerings will be displayed when the user naviates to the /jobs page. For each job offering, a couple of information shall be displayed.
@@ -56,12 +56,38 @@ Often is it necessary to consolidate some work that is used in different stories
 `As Emma, I want to view a list of all available job offerings.`
 `As Tom, I want to create a job offer, so that job searchers can apply for it.`
 
-Both stories have the _job offering_ in common. To be able to implement both stories, potentially independently from each other, we need to define the _job offering_ itself.
+Both stories have the _job offering_ in common. To be able to implement both user stories, potentially independently from each other, we need to define the _job offering_ itself to create the infrastructure in the code that will enable other functionatly.
+Those items are called _enabler story_ or just _task_. I personally prefer to keep it simple and call them _tasks_. In this way, I can easily see the difference between work that provides new functionality and work that enables functionality. Also work like necessary refactoring belongs to that category.
 
-### priorization
+Let's define a simple task that handles jobs.
 
-Priorize functionality
+`Persistent storage of jobs.`
 
-### initial plan
+Also a task shall have acceptance criteria to define the scope of the work.
 
-Make an initial plan... (Backlog)
+1. For each job the following information shall be stored: title, a description, a location, the name of the user who created the offering, a date when it was created.
+2. Jobs shall be persistently stored in a SQLite database.
+
+Those acceptance criteria are already very technical. If you work alone, you can make this decisions directoy. When working in a team, this should be discussed. I have choosen a SQLite database because it is easy to implement. No additional server must be installed and maintained. Nothing hinders us to replace the SQLite database later with a different database technology.
+
+An alternative approach would be to merge the `Persistent storage of jobs.` task with one of the two mentioned user stories. That can be done of course. It is always a trade off between doing work in smaller chunks or providing experiencable functionality in one go. That depends mainly on your taste and expertise with the used technology. I usually prefer to have small wins. That is more motivating for me at least.
+
+### priorization and initial plan
+
+Now, a couple of user stories and tasks exists. The idea of priorization is to bring them in a logical order. The ordering is mainly influenced by the users (what is most important to them) and the technical need to implement tasks that enable needed functionality.
+So we can just bring the stories we have already created in an order.
+
+1. `Persistent storage of jobs.`
+2. `As Emma, I want to view a list of all available job offerings.`
+3. `As Tom, I want to create a job offer, so that job searchers can apply for it.`
+
+When all three items are implemented, we are able to create job offerings and view the growing list of job offerings. Also we will be able to shut down the software and restart again and all jobs are still existent. So we have a nice little demo that assembles already many parts of our proof of concept.
+
+Taking Scrum vocabulary into account, the defined items assemble a _sprint backlog_. And we implement those items, and ONLY those items in the first iteration of development (_sprint_). After the sprint, we have running software that can be demonstrated.
+
+Everyhting that comes to mind during the implementation which needs to be done additionality, will be stored in a todo list (or _backlog_). One thing that comes to my mind immediately is that Tom most likely also wants to delete a created offering. For reference, here is the complete _backlog_:
+
+- `As Tom, I want to delete a created job offering, so that nobody applies to a job that is not relevant anymore`
+- `As Sofia, I want to browse a list of applicants, so that I can chose the right candidate.`
+- `As Leon, I want to apply for a job so that I am in the short list of applicants.`
+- `As Emma, I want to search for available jobs so that I can apply for them.`
