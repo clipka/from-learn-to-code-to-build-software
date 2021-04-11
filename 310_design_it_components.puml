@@ -1,0 +1,21 @@
+@startuml Design it! First iteration
+
+package "Job Viewer" {
+    [List Jobs]
+}
+
+package "Job Creator" {
+    [Create Job]
+}
+
+package "Job Manager" {
+    job_interface -- [Job Manager]
+    database "Sqlite" {
+        [Jobs]
+    }
+}
+
+[List Jobs] -- job_interface
+[Create Job] -- job_interface
+
+@enduml

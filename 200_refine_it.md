@@ -65,8 +65,8 @@ Let's define a simple task that handles jobs.
 
 Also a task shall have acceptance criteria to define the scope of the work.
 
-1. For each job the following information shall be stored: title, a description, a location, the name of the user who created the offering, a date when it was created.
-2. Jobs shall be persistently stored in a SQLite database.
+`1. For each job the following information shall be stored: title, a description, a location, the name of the user who created the offering, a date when it was created.`
+`2. Jobs shall be persistently stored in a SQLite database.`
 
 Those acceptance criteria are already very technical. If you work alone, you can make this decisions directoy. When working in a team, this should be discussed. I have choosen a SQLite database because it is easy to implement. No additional server must be installed and maintained. Nothing hinders us to replace the SQLite database later with a different database technology.
 
