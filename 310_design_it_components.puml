@@ -19,3 +19,78 @@ package "Job Manager" {
 [Create Job] -- job_interface
 
 @enduml
+
+@startuml Job Manager class diagram
+
+class JobInterface {
+    get_all_jobs(): void
+    add_job(): bool
+    json_to_job(): bool
+    job_to_json(): bool
+}
+
+class JobDataStorage {
+    all(): List<Job>
+    add(Job j): bool
+}
+
+class Job {}
+
+JobInterface -right- JobDataStorage
+JobInterface -- Job
+JobDataStorage -- Job
+@enduml
+
+@startuml Job Manager Sequence diagram - Get jobs
+
+hide footbox
+
+actor Emma
+
+box "Job Manager"
+participant "JobInterface" as if
+participant "JobDataStorage" as ds
+database SQLite as data
+end box
+
+group "Get all jobs"
+
+Emma -> if : GET /jobs
+if -> ds: all()
+ds -> data: SELECT * FROM jobs;
+data --> ds: <data>
+ds --> if: List<Job>
+if -> if: jobs_to_json()
+if --> Emma: <jobs>
+end group
+
+group "Add job"
+
+end group
+
+@enduml
+
+@startuml Job Manager Sequence diagram - Add job
+
+hide footbox
+
+actor Tom
+
+box "Job Manager"
+participant "JobInterface" as if
+participant "JobDataStorage" as ds
+database SQLite as data
+end box
+
+group "Add job"
+
+Tom -> if: POST /jobs {<job details>}
+if -> if: job = json_to_job()
+if -> ds: add(job)
+ds -> data: INSERT INTO jobs (<job data>)
+data --> ds: <ok>
+ds --> if: <ok>
+if --> Tom: <ok>
+end group
+
+@enduml

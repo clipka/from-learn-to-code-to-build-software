@@ -55,4 +55,47 @@ When `POST`'ing a job, all those information has to be provided in the request. 
 
 ### Job Manager internals
 
+We basically know already everything about the internals of the `Job Manager`. Derived from the interface, we can define the inital database structure. We decided to start with a simple SQLite database, so a definition of the table `Jobs` looks like this:
+
+```
+CREATE TABLE jobs
+(
+    Title VARCHAR (100)
+    Description VARCHAR (1000)
+    Location VARCHAR (100)
+    User VARCHAR (50)
+    CreatedAt DATETIME
+)
+```
+
+In later iteratoins, we will most likely replace the type of a user with a reference to an entry in the user table and might take a more sophisticated approach for the location, but for now, having a simple table is more then sufficient.
+
+It's a good hint for the internal design anyway to know that we will have a lot of changes around the data handling. So better to not mix the interface implementation with the database interaction code. On the other hand, we keep it as simple as possible.
+
+TODO: Explain class diagrams a bit
+
+![JobManager Internals](out/310_design_it_components/Job%20Manager%20class%20diagram.png)
+
+There are just two parts as of now. The `JobInterface` and the `JobDataStorage`. The `JobInterface` takes requests coming from the interface and forwards them to the `JobDataStorage`. The `JobDataStorage` will then itself interact with the database to pull or store data.
+The `JobInterface` class will not do that much as of now besides converting data. Later, additional functionality can be assigned like checking parameters. But let's not focus on it right now - we are in the first iteration and the main goal is to create simple end-2-end functionality.
+Both parts hide external data formats from each other and talk to each other utilizing the defined data type `Job`. Having this structure, the communication between both parts is self-contained and does not depend on the external interfaces. In this case, it does not matter if we replace the REST interface by gRPC or the SQLite database by a noSql database.
+Furthermore, testing each part of the `JobManager` can be done individually.
+
+TODO: Explain Sequence diagrams a bit
+
+Finally, let's have a look at how the the defined internal structure supports the two user stories of this iteration.
+
+#### Get all jobs
+
+The following sequence diagram shows how the components communicate with each other.
+When `GET /jobs` is invoked, the `JobInterface` will receive the request and forward it to `JobDataStorage`. `JobDataStorage` pulls the data from the database and returns a list of jobs. `JobInterface` converts the received data to JSON and returns the data.
+
+![Get all jobs](out/310_design_it_components/Job%20Manager%20Sequence%20diagram%20-%20Get%20jobs.png)
+
+#### Add a job
+
+When a `POST /jobs` request is received by the `JobInterface`. The `JobInterface` checks the received data and converts it to a `Job`. The job itself is forwarded to the `JobDataStorage` for storage into the database. If everything works, the new job is stored in the database.
+
+![Add job](out/310_design_it_components/Job%20Manager%20Sequence%20diagram%20-%20Add%20job.png)
+
 ### User Interface
